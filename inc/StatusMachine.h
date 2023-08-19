@@ -1,6 +1,7 @@
 #ifndef STATUS_H
 #define STATUS_H
 #include <stdio.h>
+#define METHOD 0
 enum MACHINE_STATUS
 {
     IDLE = 0,
@@ -10,10 +11,11 @@ enum MACHINE_STATUS
 };
 enum MACHINE_ACTION
 {
-    MOVE_PHASE = 0,
-    POSITIVE_MOVE = 1,
-    NEGATIVE_MOVE = 2,
-    INVALID_ACTION = 3
+    IDLE_NOMOVE = 0,
+    MOVE_PHASE = 1,
+    POSITIVE_MOVE = 2,
+    NEGATIVE_MOVE = 3,
+    INVALID_ACTION = 4
 };
 
 

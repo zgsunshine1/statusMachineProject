@@ -9,17 +9,17 @@ void *memAlloc(const size_t size, memDestroyFun *pMemDes)
 	}
     pMem->numRefObj = 1;
     pMem->pMemDes   = pMemDes;
-    return (void *)(pMem + 1);
+    return (void *)(pMem);
 }
 
 void *memRef(void *data)
 {
-    MemoryClass *pMem;
     if (!data)
 	{
       return NULL;
     }
-    pMem = ((MemoryClass*)data) - 1;
+    MemoryClass *pMem;
+    pMem = ((MemoryClass*)data);
     ++pMem->numRefObj;
     return data;
 }
@@ -27,23 +27,19 @@ void *memRef(void *data)
 
 void *memDeref(void *data)
 {
-    MemoryClass *pMem;
     if (!data)
 	{
 	   return NULL;
 	}
-    pMem = ((MemoryClass*)data) - 1;
+    MemoryClass *pMem = ((MemoryClass*)data);
 
-    if (--pMem->numRefObj > 0)
+    if ((--pMem->numRefObj) == 0)
 	{
-        return NULL;
+        pMem->pMemDes= ((MemoryClass*)data)->pMemDes;
+        free(pMem);
+        pMem = NULL;
+        data = NULL;
+        return data;
 	}
-    if (pMem->pMemDes)
-	{
-        pMem->pMemDes(data);
-	}
-    if (pMem->numRefObj > 0)
-        return NULL;
-    free(pMem);
-    return NULL;
+    return data;
 }
