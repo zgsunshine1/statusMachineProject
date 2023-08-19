@@ -1,5 +1,5 @@
 #include<gtest/gtest.h>
-#include "SmartPoint.c"
+#include "src/SmartPoint.c"
 using namespace std;
 
 TEST(testCase,GiveAllocSize_WhenMemAllocSuccess_ThenRefObjNumEqualToOne)

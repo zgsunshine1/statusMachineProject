@@ -1,4 +1,4 @@
-#include "StatusMachine.h"
+#include "inc/StatusMachine.h"
 int postiveMove(int status)
 {
     printf("machine positive move\n");

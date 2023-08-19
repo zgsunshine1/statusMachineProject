@@ -1,4 +1,4 @@
-#include "SmartPoint.h"
+#include "inc/SmartPoint.h"
 void *memAlloc(const size_t size, memDestroyFun *pMemDes)
 {
     MemoryClass *pMem;
