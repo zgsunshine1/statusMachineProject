@@ -8,6 +8,13 @@ TEST(testCase,GiveAllocSize_WhenMemAllocSuccess_ThenRefObjNumEqualToOne)
     MemoryClass * memObj = (MemoryClass *)memAlloc(allocSize, NULL);
     EXPECT_EQ(memObj->numRefObj, 1);
 }
+TEST(testCase,GiveMemRef_WhenMemRefSuccess_ThenRefObjNumEqualToTwo)
+{
+    const size_t allocSize = 512;
+    void * memObj = memAlloc(allocSize, NULL);
+    memObj = memRef(memObj);
+    EXPECT_EQ(((MemoryClass *) memObj)->numRefObj, 1);
+}
 
 int main(int argc, char **argv)
 {
