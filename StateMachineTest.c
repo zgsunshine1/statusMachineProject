@@ -1,5 +1,5 @@
 #include<gtest/gtest.h>
-#include "Status.h"
+#include "StatusMachine.c"
 using namespace std;
 
 TEST(testCase,GiveCurrentStatusIdle_WhenExcutePostiveMove_ThenCheckFinalStatus)

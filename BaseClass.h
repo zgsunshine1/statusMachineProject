@@ -1,3 +1,0 @@
-struct baseClass{
-	int a;
-};
