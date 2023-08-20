@@ -40,7 +40,20 @@ TEST(testCase,GiveAllocedMem_WhenMemDeRefSuccess_ThenmemDerefObjEqualToNULL)
     void * memDerefObj = memDeref(memObj);
     EXPECT_EQ(memDerefObj, (void *)NULL);
 }
-
+// TEST(testCase,GiveAllocedMem_WhenMemDeRefSuccess_ThenmemDerefObjEqualToNULL)
+// {
+    //pthread_t thread[5];
+    //pthread_mutex_init(&mutex,NULL);
+    // for(int i=0; i <5; ++i)
+    //{
+    //  pthread_create(&thread[i],NULL, memAlloc, NULL)
+    //}
+    //for(int i=0; i <5; ++i)
+    //{
+    //  pthread_join(thread[i],NULL);
+    //}
+// }
+// }
 int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc,argv);

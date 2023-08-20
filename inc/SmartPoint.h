@@ -6,9 +6,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
-
+#include <pthread.h>
 typedef void (memDestroyFun)(void *data);
-
+//pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 typedef struct Memory {
     uint32_t numRefObj;
     memDestroyFun *pMemDes;

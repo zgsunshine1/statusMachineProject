@@ -48,21 +48,21 @@ static Status_Handler statusHandler[] = {
 static int currentStatus = IDLE;
 static int statSize = sizeof(statusHandler)/ sizeof(Status_Handler);
 /*执行函数对于扩展逻辑不变*/
-void execute(int action)
+void execute(int status)
 {
-    if((currentStatus >= statSize) || (action >= statSize))
+    if((currentStatus >= statSize) || (status >= statSize))
     {
-        printf("unknow machine status currentStatus:%d, action:%d\n", currentStatus, action);
+        printf("unknow machine status currentStatus:%d, status:%d\n", currentStatus, status);
         return;
     }
-    printf("current status is %d, will do action %d\n",currentStatus, action);
+    printf("current status is %d, will do status %d\n",currentStatus, status);
     int nextStatus = currentStatus;
-    Act_Handler *actHandler = statusHandler[action].actHandler;
-    int actNum = statusHandler[action].actNum;
+    Act_Handler *actHandler = statusHandler[status].actHandler;
+    int actNum = statusHandler[status].actNum;
     int actIdx = 0;
     for(actIdx = 0;actIdx < actNum; actIdx++)
     {
-        nextStatus = (actHandler[actIdx].handler)(action);
+        nextStatus = (actHandler[actIdx].handler)(status);
     }
     currentStatus = nextStatus;
     printf("next status is %d\n",currentStatus);
