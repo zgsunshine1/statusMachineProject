@@ -9,6 +9,10 @@
 #include <pthread.h>
 typedef void (memDestroyFun)(void *data);
 //pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+//struct argStruct{
+//size_t size;
+//memDestroyFun *pMemDes;
+//}argStruct;
 typedef struct Memory {
     uint32_t numRefObj;
     memDestroyFun *pMemDes;
